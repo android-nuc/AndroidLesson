@@ -1,30 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.juhezi.androidlesson.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/img_show"
+        android:layout_width="@dimen/activity_main_img_size"
+        android:layout_height="@dimen/activity_main_img_size"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_main_img_margin_top"
+        android:src="@drawable/ic_face" />
+
+    <EditText
+        android:id="@+id/et_username"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/img_show"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:hint="@string/please_input_username"
+        android:singleLine="true" />
 
-        android:background="@android:color/holo_green_dark"
-        android:text="Hello World!" />
-
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/et_passwd"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_light"
-        android:text="Hello World!" />
+        android:layout_below="@id/et_username"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:hint="@string/please_input_passwd"
+        android:singleLine="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@android:color/holo_orange_dark"
-        android:text="Hello World!" />
+    <Button
+        android:id="@+id/btn_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et_passwd"
+        android:layout_alignStart="@+id/et_passwd"
+        android:layout_below="@+id/et_passwd"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="@string/sign_in"
+        android:textColor="@android:color/white" />
 
-</LinearLayout>
+</RelativeLayout>
