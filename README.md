@@ -93,3 +93,9 @@ XML通用属性：
 * android:background="?selectableItemBackground" - 设置点击效果(涟漪)
 
 * Log.i(TAG,message) - 打印Log日志
+
+## 参考资料
+
+* [Android生命周期](https://github.com/qiaoyunrui/StudyNote/blob/master/Android/Android%20Life%20Cycle.md)
+
+* [RecyclerView的基本使用](http://qiaoyunrui.github.io/2016/07/22/androidRecycler/)
