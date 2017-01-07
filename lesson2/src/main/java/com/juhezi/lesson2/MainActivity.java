@@ -39,7 +39,11 @@ public class MainActivity extends AppCompatActivity {
                     //可以登录
                     Intent intent = new Intent(MainActivity.this,
                             HelloActivity.class);
-                    startActivity(intent);
+                    intent.putExtra("Username", "HelloWorld");
+                    intent.putExtra("Username", "Other");   //覆盖上一条
+                    //Key-Value
+                    startActivity(intent);  //跳转
+                    finish();   //结束当前Activity
                 } else {
                     //不可以登录
                     Toast.makeText(MainActivity.this,
