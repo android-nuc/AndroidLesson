@@ -98,4 +98,4 @@ XML通用属性：
 
 * [Android生命周期](https://github.com/qiaoyunrui/StudyNote/blob/master/Android/Android%20Life%20Cycle.md)
 
-* [RecyclerView的基本使用](http://qiaoyunrui.github.io/2016/07/22/androidRecycler/)
+* [RecyclerView的基本使用](https://github.com/qiaoyunrui/StudyNote/blob/master/Android/androidRecycler.md)
