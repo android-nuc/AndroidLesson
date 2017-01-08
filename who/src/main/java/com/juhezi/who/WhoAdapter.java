@@ -30,7 +30,7 @@ public class WhoAdapter extends
         //1. 要加载布局（R.layout.item_who）
         // XML -> View - > ViewHolder
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_who, parent);
+                .inflate(R.layout.item_who, parent, false);
         return new ViewHolder(view);
     }
 

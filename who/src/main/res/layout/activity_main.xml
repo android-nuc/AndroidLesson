@@ -12,23 +12,23 @@
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_margin="50dp"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@drawable/ic_brightness" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/btn_restart"
-        android:layout_below="@id/img_get">
+        android:layout_above="@+id/btn_restart"
+        android:layout_below="@+id/img_get">
 
     </android.support.v7.widget.RecyclerView>
 
     <Button
-        android:layout_margin="@dimen/activity_horizontal_margin"
         android:id="@+id/btn_restart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/activity_horizontal_margin"
         android:background="@color/colorAccent"
         android:text="重新开始" />
 
