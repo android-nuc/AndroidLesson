@@ -3,6 +3,7 @@ package com.juhezi.who;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,6 +16,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
+
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
     private WhoAdapter whoAdapter;
 
     private static final String TAG = "MainActivity";
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,25 +54,32 @@ public class MainActivity extends AppCompatActivity {
                     //产生0-100的随机数
                     int index = random.nextInt(100);
                     //判断是否已经存在
-                    if (whoAdapter.data.contains(index)) {  //已经存在
+                    boolean isRepeat = false;   //标识是否存在
+                    for (int i = 0; i < whoAdapter.data.size(); i++) {
+                        if (Integer.parseInt(whoAdapter.data.get(i)) == index) {
+                            isRepeat = true;
+                            break;
+                        }
+                    }
+                    if (isRepeat) { //重复
                         flag++;
                     } else {
                         //向列表的数据中添加
                         whoAdapter.data.add(index + "");
+                        whoAdapter.notifyItemInserted(
+                                whoAdapter.data.size() - 1);
                         break;
                     }
                     if (flag >= 16) {
+                        Log.i(TAG, "onClick: Hello");
                         Toast.makeText(MainActivity.this,
                                 "休息会", Toast.LENGTH_SHORT)
                                 .show();
                         break;
                     }
-
                 }
                 //通知RecyclerView数据发生改变，让它显示新的数据
 //                whoAdapter.notifyDataSetChanged();
-                whoAdapter.notifyItemInserted(
-                        whoAdapter.data.size() - 1);
                 //使RecyclerView滚动到最后一位，
                 // -1使因为位置是从0开始的
                 mRvList.scrollToPosition(
@@ -101,4 +119,5 @@ public class MainActivity extends AppCompatActivity {
         whoAdapter = new WhoAdapter();
         mRvList.setAdapter(whoAdapter);
     }
+
 }
